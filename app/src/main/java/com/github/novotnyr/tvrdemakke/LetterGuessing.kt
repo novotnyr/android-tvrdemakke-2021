@@ -1,6 +1,8 @@
 package com.github.novotnyr.tvrdemakke
 
-class LetterGuessing {
+import java.io.Serializable
+
+class LetterGuessing : Serializable {
     private val words = listOf("syr", "gymnasta", "Cyprus")
 
     private lateinit var currentWord: String

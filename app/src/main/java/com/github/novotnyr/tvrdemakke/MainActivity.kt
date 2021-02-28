@@ -9,11 +9,19 @@ import android.widget.Toast
 class MainActivity : AppCompatActivity() {
     lateinit var wordTextView: TextView
 
+    var letterGuessing = LetterGuessing()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         wordTextView = findViewById(R.id.wordTextView)
+        resetGame()
+    }
+
+    fun resetGame() {
+        letterGuessing.newGame()
+        wordTextView.text = letterGuessing.getChallenge()
     }
 
     fun onYButtonClick(view: View) {

@@ -16,7 +16,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         wordTextView = findViewById(R.id.wordTextView)
-        resetGame()
+        if (savedInstanceState == null) {
+            resetGame()
+        } else {
+            letterGuessing = savedInstanceState["letterGuessing"] as LetterGuessing
+            wordTextView.text = letterGuessing.getChallenge()
+        }
     }
 
     fun resetGame() {
@@ -41,5 +46,10 @@ class MainActivity : AppCompatActivity() {
 
     fun onIButtonClick(view: View) {
         guess("i")
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putSerializable("letterGuessing", letterGuessing)
     }
 }

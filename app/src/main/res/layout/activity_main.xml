@@ -18,6 +18,7 @@
 
     <Button
         android:id="@+id/yButton"
+        android:onClick="onYButtonClick"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="y"
@@ -27,6 +28,7 @@
 
     <Button
         android:id="@+id/iButton"
+        android:onClick="onIButtonClick"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="i"

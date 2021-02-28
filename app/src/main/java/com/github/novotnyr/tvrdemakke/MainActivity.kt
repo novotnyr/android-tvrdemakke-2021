@@ -24,12 +24,22 @@ class MainActivity : AppCompatActivity() {
         wordTextView.text = letterGuessing.getChallenge()
     }
 
-    fun onYButtonClick(view: View) {
-        Toast.makeText(this, "Klikli ste na ypsilon", Toast.LENGTH_SHORT)
+    fun guess(letter: String) {
+        val message = if (letterGuessing.guess(letter)) {
+            "Uhádli ste!"
+        } else {
+            "Žiaľ, voľba je nesprávna"
+        }
+        Toast.makeText(this, message, Toast.LENGTH_SHORT)
             .show()
+        resetGame()
     }
+
+    fun onYButtonClick(view: View) {
+        guess("y")
+    }
+
     fun onIButtonClick(view: View) {
-        Toast.makeText(this, "Klikli ste na mäkké i", Toast.LENGTH_SHORT)
-            .show()
+        guess("i")
     }
 }
